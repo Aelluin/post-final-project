@@ -19,5 +19,13 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+        \App\Models\Blog::create([
+            'title' => 'Test Blog Post',
+            'content' => 'This is a test blog post.',
+            'user_id' => 1,
+        ]);
+
+
+
     }
 }
