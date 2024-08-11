@@ -18,8 +18,12 @@ Route::middleware('auth')->group(function () {
 
     // Blog Routes
     Route::post('/blogs/create', [BlogController::class, 'createBlog'])->name('createBlog');
-    Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blogpage');
+    Route::get('/blog{id}', [BlogController::class, 'show'])->name('blogpage');
     Route::get('/dashboard', [BlogController::class, 'dashboard'])->name('dashboard');
+
+
+
+
 });
 
 // Test Route

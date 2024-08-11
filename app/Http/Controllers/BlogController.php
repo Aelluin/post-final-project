@@ -32,18 +32,25 @@ class BlogController extends Controller
     public function show($id)
     {
         // Retrieve the blog post by ID and load the associated user
-        $blog = Blog::with('user')->findOrFail($id);
+        $blogs = Blog::with('user')->latest()->take(9)->get();
 
         // Pass the blog post to the view
-        return view('blogpage', compact('blog'));
-    }
+        return view('blogpage', ['blogs' => $blogs]);
 
+
+
+    }
     public function dashboard()
     {
-        return view('home');
+        $blogs = Blog::with('user')->latest()->take(9)->get();
+
+        // Pass the blogs to the view
+        return view('home', ['blogs' => $blogs]);
     }
+
+    public function index()
+    {
+
+    }
+
 }
-
-
-
-
